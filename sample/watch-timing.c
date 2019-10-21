@@ -40,16 +40,16 @@
   [2] https://github.com/mergeconflict/histogram
  */
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wfloat-equal"
 /** Compare two doubles for equality without the compiler warning. This is
  * probably the wrong thing to do, but this is just sample code :) */
 static inline int
 eq(double a, double b)
 {
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wfloat-equal"
 	return a == b;
-#pragma GCC diagnostic pop
 }
+#pragma GCC diagnostic pop
 
 struct bin {
 	double centroid;
