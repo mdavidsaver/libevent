@@ -1561,6 +1561,7 @@ end:
 static void
 test_evutil_v6addr_is_local(void *arg)
 {
+#ifdef IN6ADDR_ANY_INIT
 	struct sockaddr_in6 sin6;
 	struct in6_addr anyaddr = IN6ADDR_ANY_INIT;
 	struct in6_addr loopback = IN6ADDR_LOOPBACK_INIT;
@@ -1597,6 +1598,9 @@ test_evutil_v6addr_is_local(void *arg)
 	LOCAL6("2001:4860:4802:32::1b", 0);
 end:
 	;
+#else
+	TT_BLATHER(("Skipping IPv6 address testing."));
+#endif
 }
 
 static void
