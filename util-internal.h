@@ -41,6 +41,9 @@
 #ifdef EVENT__HAVE_SYS_EVENTFD_H
 #include <sys/eventfd.h>
 #endif
+#ifdef EVENT__HAVE_NETINET_IN_H
+#include <netinet/in.h>
+#endif
 #include "event2/util.h"
 
 #include "time-internal.h"
