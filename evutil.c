@@ -113,6 +113,14 @@
 int have_working_afunix_ = -1;
 #endif
 
+#ifdef __rtems__
+unsigned if_nametoindex(const char* ifname) { return 0; }
+
+const char *gai_strerror(int errcode) {
+    return "Unknown GAI error";
+}
+#endif
+
 int
 evutil_open_closeonexec_(const char *pathname, int flags, unsigned mode)
 {
